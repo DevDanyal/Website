@@ -6,9 +6,11 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
+import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
-import AnimatedBackground from "@/components/AnimatedBackground";
 import Footer from "@/components/Footer";
+import AnimatedBackground from "@/components/AnimatedBackground";
+import ScrollProgress from "@/components/ScrollProgress";
 
 export default function Home() {
   const mouse = useRef({ x: 0, y: 0 });
@@ -27,12 +29,14 @@ export default function Home() {
 
   return (
     <main className="relative">
+      <ScrollProgress />
       <AnimatedBackground mouse={mouse} />
       <Navigation />
       <Hero />
       <About />
       <Projects />
       <Skills />
+      <Testimonials />
       <Contact />
       <Footer />
     </main>

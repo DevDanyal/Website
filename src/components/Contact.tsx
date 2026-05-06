@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import ContactForm from "./ContactForm";
 
 const contactInfo = [
   {
@@ -64,7 +65,7 @@ export default function Contact() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 rounded-full blur-[200px]" />
       </div>
 
-      <div className="max-w-4xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -84,49 +85,58 @@ export default function Contact() {
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mt-6 rounded-full" />
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 gap-4">
-          {contactInfo.map((contact, index) => (
-            <motion.a
-              key={contact.name}
-              href={contact.href}
-              target="_blank"
-              rel="noopener noreferrer"
+        <div className="grid lg:grid-cols-2 gap-8">
+          <div className="space-y-6">
+            <div className="grid sm:grid-cols-2 gap-4">
+              {contactInfo.map((contact, index) => (
+                <motion.a
+                  key={contact.name}
+                  href={contact.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                  className="group"
+                >
+                  <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-white/10 hover:bg-white/[0.05] transition-all duration-500">
+                    <div className="flex items-center gap-4">
+                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
+                        contact.color === "blue" ? "bg-blue-500/20 text-blue-400" :
+                        contact.color === "purple" ? "bg-purple-500/20 text-purple-400" :
+                        "bg-green-500/20 text-green-400"
+                      }`}>
+                        {contact.icon}
+                      </div>
+                      <div>
+                        <div className="text-xs text-white/30 uppercase tracking-wider mb-1">
+                          {contact.name}
+                        </div>
+                        <div className="text-sm sm:text-base text-white/70 group-hover:text-white transition-colors">
+                          {contact.value}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.a>
+              ))}
+            </div>
+
+            <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-              className="group"
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="p-6 rounded-2xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-white/5"
             >
-              <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-white/10 hover:bg-white/[0.05] transition-all duration-500">
-                <div className="flex items-center gap-4">
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
-                    contact.color === "blue" ? "bg-blue-500/20 text-blue-400" :
-                    contact.color === "purple" ? "bg-purple-500/20 text-purple-400" :
-                    "bg-green-500/20 text-green-400"
-                  }`}>
-                    {contact.icon}
-                  </div>
-                  <div>
-                    <div className="text-xs text-white/30 uppercase tracking-wider mb-1">
-                      {contact.name}
-                    </div>
-                    <div className="text-sm sm:text-base text-white/70 group-hover:text-white transition-colors">
-                      {contact.value}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.a>
-          ))}
-        </div>
+              <h3 className="text-lg font-semibold text-white mb-2">Quick Response</h3>
+              <p className="text-sm text-white/50">
+                I typically respond within 24 hours. For urgent matters, reach out via WhatsApp.
+              </p>
+            </motion.div>
+          </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-16 text-center"
-        >
-          <div className="w-[1px] h-16 bg-gradient-to-b from-white/20 to-transparent mx-auto mb-8" />
-        </motion.div>
+          <ContactForm />
+        </div>
       </div>
     </section>
   );
