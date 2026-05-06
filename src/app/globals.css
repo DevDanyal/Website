@@ -4,13 +4,34 @@
 
 :root {
   --background: #0A0A0F;
+  --background-secondary: #050508;
   --surface: #111118;
+  --surface-hover: #1a1a24;
   --primary: #3B82F6;
   --accent: #60A5FA;
   --secondary: #8B5CF6;
   --text-primary: #FFFFFF;
   --text-secondary: #94A3B8;
+  --text-tertiary: #64748B;
   --border: #1E293B;
+  --border-light: rgba(255, 255, 255, 0.05);
+  --border-hover: rgba(255, 255, 255, 0.1);
+}
+
+.light-mode {
+  --background: #FFFFFF;
+  --background-secondary: #F8FAFC;
+  --surface: #F1F5F9;
+  --surface-hover: #E2E8F0;
+  --primary: #2563EB;
+  --accent: #3B82F6;
+  --secondary: #7C3AED;
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-tertiary: #94A3B8;
+  --border: #E2E8F0;
+  --border-light: rgba(0, 0, 0, 0.05);
+  --border-hover: rgba(0, 0, 0, 0.1);
 }
 
 * {
@@ -30,6 +51,7 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 ::selection {
@@ -65,6 +87,11 @@ body {
   background: rgba(17, 17, 24, 0.6);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.light-mode .glass {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 @layer utilities {

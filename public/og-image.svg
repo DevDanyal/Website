@@ -1,0 +1,40 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0A0A0F"/>
+      <stop offset="1" stop-color="#111118"/>
+    </linearGradient>
+    <linearGradient id="gradient" x1="0" y1="0" x2="1200" y2="315" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3B82F6"/>
+      <stop offset="0.5" stop-color="#8B5CF6"/>
+      <stop offset="1" stop-color="#EC4899"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="50" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  
+  <circle cx="600" cy="315" r="200" fill="url(#gradient)" fill-opacity="0.1" filter="url(#glow)"/>
+  
+  <circle cx="900" cy="150" r="100" fill="#3B82F6" fill-opacity="0.15"/>
+  <circle cx="300" cy="500" r="80" fill="#8B5CF6" fill-opacity="0.15"/>
+  <circle cx="1000" cy="450" r="60" fill="#EC4899" fill-opacity="0.1"/>
+  
+  <circle cx="600" cy="200" r="60" fill="#1a1a24" stroke="url(#gradient)" stroke-width="4"/>
+  <text x="600" y="215" text-anchor="middle" fill="white" font-family="Arial" font-size="40" font-weight="bold">DA</text>
+  
+  <text x="600" y="350" text-anchor="middle" fill="white" font-family="Arial" font-size="72" font-weight="bold">DANYAL ARSHAD</text>
+  
+  <text x="600" y="410" text-anchor="middle" fill="url(#gradient)" font-family="Arial" font-size="32">AI & Python Developer</text>
+  
+  <rect x="500" y="460" width="200" height="50" rx="25" fill="url(#gradient)"/>
+  <text x="600" y="492" text-anchor="middle" fill="white" font-family="Arial" font-size="20">View Portfolio</text>
+  
+  <text x="600" y="580" text-anchor="middle" fill="#64748B" font-family="Arial" font-size="16">github.com/DevDanyal | aidevdanyal@gmail.com</text>
+</svg>

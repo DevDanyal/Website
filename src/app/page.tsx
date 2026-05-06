@@ -6,7 +6,9 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
+import GitHubStats from "@/components/GitHubStats";
 import Testimonials from "@/components/Testimonials";
+import Certifications from "@/components/Certifications";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import AnimatedBackground from "@/components/AnimatedBackground";
@@ -36,6 +38,8 @@ export default function Home() {
       <About />
       <Projects />
       <Skills />
+      <GitHubStats />
+      <Certifications />
       <Testimonials />
       <Contact />
       <Footer />
