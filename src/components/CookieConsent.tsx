@@ -38,34 +38,33 @@ export default function CookieConsent() {
           exit={{ y: 100, opacity: 0 }}
           className="fixed bottom-0 left-0 right-0 z-[100] p-4 md:p-6"
         >
-          <div className="max-w-6xl mx-auto bg-white/[0.05] backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-2xl">
-            <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
+          <div className="max-w-6xl mx-auto bg-[var(--surface)] backdrop-blur-xl border border-[var(--border)] rounded-t-2xl md:rounded-2xl p-4 md:p-6 shadow-2xl">
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
               <div className="flex-1">
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="text-2xl">🍪</span>
-                  <h3 className="text-lg font-semibold text-[--text-primary]">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-lg">🍪</span>
+                  <h3 className="text-base font-semibold text-[var(--text-primary)]">
                     We value your privacy
                   </h3>
                 </div>
-                <p className="text-[--text-secondary] text-sm leading-relaxed">
-                  We use cookies to enhance your browsing experience, serve personalized content, 
-                  and analyze our traffic. By clicking &quot;Accept All&quot;, you consent to our use of cookies.
+                <p className="text-[var(--text-secondary)] text-xs md:text-sm leading-relaxed">
+                  We use cookies to enhance your experience.
                   <Link href="/privacy" className="text-[#2563EB] hover:underline ml-1">
                     Learn more
                   </Link>
                 </p>
               </div>
               
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
                 <button
                   onClick={acceptNecessary}
-                  className="px-5 py-2.5 text-sm font-medium text-[--text-secondary] bg-transparent border border-white/10 rounded-lg hover:bg-white/5 transition-colors"
+                  className="px-3 md:px-5 py-2 text-xs md:text-sm font-medium text-[var(--text-secondary)] bg-transparent border border-[var(--border)] rounded-lg hover:bg-[var(--surface-hover)] transition-colors"
                 >
-                  Necessary Only
+                  Necessary
                 </button>
                 <button
                   onClick={acceptAll}
-                  className="px-5 py-2.5 text-sm font-medium text-white bg-[#2563EB] rounded-lg hover:bg-[#1d4ed8] transition-colors"
+                  className="px-3 md:px-5 py-2 text-xs md:text-sm font-medium text-white bg-[#2563EB] rounded-lg hover:bg-[#1d4ed8] transition-colors"
                 >
                   Accept All
                 </button>

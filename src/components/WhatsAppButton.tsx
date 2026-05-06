@@ -25,7 +25,7 @@ export default function WhatsAppButton() {
           transition={{ type: "spring", stiffness: 260, damping: 20 }}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          className="fixed bottom-24 left-8 z-50 group"
+          className="fixed bottom-24 left-4 md:left-8 right-4 md:right-auto z-50 group"
           aria-label="Chat on WhatsApp"
         >
           <div className="relative">
