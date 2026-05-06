@@ -38,9 +38,9 @@ export default function Navigation() {
   return (
     <>
       <motion.nav
-        style={{ backgroundColor: navbarBg.get() > 50 ? "rgba(10, 10, 15, 0.95)" : "rgba(10, 10, 15, 0)" }}
+        style={{ backgroundColor: navbarBg.get() > 50 ? "rgba(var(--background-rgb, 10, 10, 15), 0.95)" : "rgba(var(--background-rgb, 10, 10, 15), 0)" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled ? "backdrop-blur-xl border-b border-white/5" : ""
+          isScrolled ? "backdrop-blur-xl border-b border-[var(--border)]" : ""
         }`}
       >
         <div className="max-w-7xl mx-auto px-6">
@@ -50,9 +50,9 @@ export default function Navigation() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-xl font-bold text-white hover:text-blue-400 transition-colors"
+              className="text-xl font-bold text-[var(--text-primary)] hover:text-blue-500 transition-colors"
             >
-              DA<span className="text-blue-400">.</span>
+              DA<span className="text-blue-500">.</span>
             </motion.a>
 
             <motion.ul
@@ -65,7 +65,7 @@ export default function Navigation() {
                 <li key={item.name}>
                   <a
                     href={item.href}
-                    className="px-5 py-2 text-sm text-white/50 hover:text-white transition-colors rounded-lg hover:bg-white/5"
+                    className="px-5 py-2 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors rounded-lg hover:bg-[var(--surface-hover)]"
                   >
                     {item.name}
                   </a>
@@ -76,7 +76,7 @@ export default function Navigation() {
             <div className="flex items-center gap-3">
               <button
                 onClick={toggleDarkMode}
-                className="p-2 rounded-full bg-white/5 border border-white/10 text-white/50 hover:text-white hover:border-white/20 transition-all"
+                className="p-2 rounded-full bg-[var(--surface)] border border-[var(--border)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--border-hover)] transition-all"
                 aria-label="Toggle theme"
               >
                 {isDarkMode ? (
@@ -103,7 +103,7 @@ export default function Navigation() {
 
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="md:hidden p-2 text-white hover:text-blue-400 transition-colors"
+                className="md:hidden p-2 text-[var(--text-primary)] hover:text-blue-500 transition-colors"
                 aria-label="Toggle menu"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -122,7 +122,7 @@ export default function Navigation() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden py-6 border-t border-white/5"
+              className="md:hidden py-6 border-t border-[var(--border)]"
             >
               <ul className="space-y-2">
                 {navItems.map((item) => (
@@ -130,7 +130,7 @@ export default function Navigation() {
                     <a
                       href={item.href}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className="block px-4 py-3 text-sm text-white/60 hover:text-white hover:bg-white/5 rounded-xl transition-all"
+                      className="block px-4 py-3 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--surface-hover)] rounded-xl transition-all"
                     >
                       {item.name}
                     </a>
@@ -140,7 +140,7 @@ export default function Navigation() {
                   <a
                     href="/resume.pdf"
                     download
-                    className="block px-4 py-3 text-sm text-blue-400 font-medium"
+                    className="block px-4 py-3 text-sm text-blue-500 font-medium"
                   >
                     Download Resume
                   </a>

@@ -40,7 +40,8 @@ export default function Testimonials() {
       id="testimonials"
       className="relative py-24 sm:py-32 px-6 overflow-hidden"
     >
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-purple-500/10 to-transparent blur-[120px]" />
+      <div className="dark-only absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-purple-500/10 to-transparent blur-[120px]" />
+      <div className="light-mode-hidden absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-purple-500/20 to-transparent blur-[120px]" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
@@ -49,10 +50,10 @@ export default function Testimonials() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-medium text-purple-400 tracking-widest uppercase">
+          <span className="text-sm font-medium text-purple-500 tracking-widest uppercase">
             Testimonials
           </span>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mt-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[var(--text-primary)] mt-4">
             What Clients Say
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto mt-6 rounded-full" />
@@ -65,22 +66,22 @@ export default function Testimonials() {
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="p-6 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-white/10 transition-all duration-500 group"
+              className="p-6 rounded-2xl bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--border-hover)] transition-all duration-500 group"
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center text-sm font-bold text-white">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center text-sm font-bold text-[var(--text-primary)]">
                   {testimonial.avatar}
                 </div>
                 <div>
-                  <h4 className="font-semibold text-white text-sm">
+                  <h4 className="font-semibold text-[var(--text-primary)] text-sm">
                     {testimonial.name}
                   </h4>
-                  <p className="text-xs text-white/40">
+                  <p className="text-xs text-[var(--text-tertiary)]">
                     {testimonial.role}
                   </p>
                 </div>
               </div>
-              <p className="text-sm text-white/50 leading-relaxed group-hover:text-white/70 transition-colors">
+              <p className="text-sm text-[var(--text-secondary)] leading-relaxed group-hover:text-[var(--text-primary)] transition-colors">
                 &quot;{testimonial.content}&quot;
               </p>
               <div className="flex items-center gap-1 mt-4">

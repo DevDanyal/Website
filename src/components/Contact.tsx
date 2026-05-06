@@ -2,7 +2,6 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import ContactForm from "./ContactForm";
 
 const contactInfo = [
   {
@@ -72,13 +71,13 @@ export default function Contact() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-medium text-blue-400 tracking-widest uppercase">
+          <span className="text-sm font-medium text-blue-500 tracking-widest uppercase">
             Contact
           </span>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mt-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[var(--text-primary)] mt-4">
             Let&apos;s Work Together
           </h2>
-          <p className="text-white/40 mt-4 max-w-xl mx-auto">
+          <p className="text-[var(--text-secondary)] mt-4 max-w-xl mx-auto">
             Have a project in mind or want to collaborate? I&apos;m always open to discussing 
             new opportunities and interesting projects.
           </p>
@@ -99,20 +98,20 @@ export default function Contact() {
                   transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
                   className="group"
                 >
-                  <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-white/10 hover:bg-white/[0.05] transition-all duration-500">
+                  <div className="p-6 rounded-2xl bg-[var(--surface)] border border-[var(--border)] hover:bg-[var(--surface-hover)] transition-all duration-500">
                     <div className="flex items-center gap-4">
                       <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
-                        contact.color === "blue" ? "bg-blue-500/20 text-blue-400" :
-                        contact.color === "purple" ? "bg-purple-500/20 text-purple-400" :
-                        "bg-green-500/20 text-green-400"
+                        contact.color === "blue" ? "bg-blue-500/20 text-blue-500" :
+                        contact.color === "purple" ? "bg-purple-500/20 text-purple-500" :
+                        "bg-green-500/20 text-green-500"
                       }`}>
                         {contact.icon}
                       </div>
                       <div>
-                        <div className="text-xs text-white/30 uppercase tracking-wider mb-1">
+                        <div className="text-xs text-[var(--text-tertiary)] uppercase tracking-wider mb-1">
                           {contact.name}
                         </div>
-                        <div className="text-sm sm:text-base text-white/70 group-hover:text-white transition-colors">
+                        <div className="text-sm sm:text-base text-[var(--text-primary)] group-hover:text-blue-500 transition-colors">
                           {contact.value}
                         </div>
                       </div>
@@ -126,16 +125,47 @@ export default function Contact() {
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="p-6 rounded-2xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-white/5"
+              className="p-6 rounded-2xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-[var(--border)]"
             >
-              <h3 className="text-lg font-semibold text-white mb-2">Quick Response</h3>
-              <p className="text-sm text-white/50">
+              <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2">Quick Response</h3>
+              <p className="text-sm text-[var(--text-secondary)]">
                 I typically respond within 24 hours. For urgent matters, reach out via WhatsApp.
               </p>
             </motion.div>
           </div>
 
-          <ContactForm />
+          <div className="p-8 rounded-2xl bg-[var(--surface)] border border-[var(--border)]">
+            <h3 className="text-xl font-semibold text-[var(--text-primary)] mb-6">Send a Message</h3>
+            <form className="space-y-5">
+              <div>
+                <input
+                  type="text"
+                  placeholder="Your name"
+                  className="w-full px-4 py-3 rounded-xl bg-[var(--surface-hover)] border border-[var(--border)] text-[var(--text-primary)] placeholder-[var(--text-tertiary)] focus:border-blue-500/50 focus:outline-none transition-colors"
+                />
+              </div>
+              <div>
+                <input
+                  type="email"
+                  placeholder="your@email.com"
+                  className="w-full px-4 py-3 rounded-xl bg-[var(--surface-hover)] border border-[var(--border)] text-[var(--text-primary)] placeholder-[var(--text-tertiary)] focus:border-blue-500/50 focus:outline-none transition-colors"
+                />
+              </div>
+              <div>
+                <textarea
+                  rows={5}
+                  placeholder="Tell me about your project or idea..."
+                  className="w-full px-4 py-3 rounded-xl bg-[var(--surface-hover)] border border-[var(--border)] text-[var(--text-primary)] placeholder-[var(--text-tertiary)] focus:border-blue-500/50 focus:outline-none transition-colors resize-none"
+                />
+              </div>
+              <button
+                type="button"
+                className="w-full py-4 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold hover:shadow-[0_0_30px_rgba(59,130,246,0.4)] transition-all"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </section>

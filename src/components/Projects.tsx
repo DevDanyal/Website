@@ -73,8 +73,8 @@ export default function Projects() {
       id="projects"
       className="relative py-24 sm:py-32 px-6 overflow-hidden"
     >
-      <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-gradient-to-l from-blue-500/10 to-transparent blur-[150px]" />
-      <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-gradient-to-r from-purple-500/10 to-transparent blur-[120px]" />
+      <div className="dark-only absolute top-1/4 right-0 w-[600px] h-[600px] bg-gradient-to-l from-blue-500/10 to-transparent blur-[150px]" />
+      <div className="light-mode-hidden absolute top-1/4 right-0 w-[600px] h-[600px] bg-gradient-to-l from-blue-500/20 to-transparent blur-[150px]" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
@@ -84,14 +84,14 @@ export default function Projects() {
           className="flex flex-col sm:flex-row sm:items-end justify-between mb-16"
         >
           <div>
-            <span className="text-sm font-medium text-blue-400 tracking-widest uppercase">
+            <span className="text-sm font-medium text-blue-500 tracking-widest uppercase">
               Portfolio
             </span>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mt-4">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[var(--text-primary)] mt-4">
               Featured Projects
             </h2>
           </div>
-          <p className="text-white/40 max-w-md mt-4 sm:mt-0">
+          <p className="text-[var(--text-secondary)] max-w-md mt-4 sm:mt-0">
             A selection of recent work showcasing AI integration, full-stack development, 
             and modern web applications.
           </p>
@@ -107,16 +107,16 @@ export default function Projects() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="group block mb-8"
           >
-            <div className="relative p-8 sm:p-10 rounded-3xl bg-white/[0.03] border border-white/5 hover:border-blue-500/30 transition-all duration-500 overflow-hidden">
+            <div className="relative p-8 sm:p-10 rounded-3xl bg-[var(--surface)] border border-[var(--border)] hover:border-blue-500/30 transition-all duration-500 overflow-hidden">
               <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${featuredProject.gradient} opacity-20 blur-[100px] rounded-full`} />
               
               <div className="relative z-10">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6">
                   <div>
-                    <span className="text-xs font-medium text-blue-400 tracking-wider uppercase">
+                    <span className="text-xs font-medium text-blue-500 tracking-wider uppercase">
                       {featuredProject.category}
                     </span>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-white mt-2 group-hover:text-blue-400 transition-colors">
+                    <h3 className="text-2xl sm:text-3xl font-bold text-[var(--text-primary)] mt-2 group-hover:text-blue-500 transition-colors">
                       {featuredProject.title}
                     </h3>
                   </div>
@@ -125,7 +125,7 @@ export default function Projects() {
                   </div>
                 </div>
 
-                <p className="text-white/50 text-lg leading-relaxed mb-6 max-w-3xl">
+                <p className="text-[var(--text-secondary)] text-lg leading-relaxed mb-6 max-w-3xl">
                   {featuredProject.description}
                 </p>
 
@@ -133,14 +133,14 @@ export default function Projects() {
                   {featuredProject.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1.5 text-sm rounded-full bg-white/5 text-white/60 border border-white/10"
+                      className="px-3 py-1.5 text-sm rounded-full bg-[var(--surface-hover)] text-[var(--text-secondary)] border border-[var(--border)]"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex items-center gap-2 text-blue-400">
+                <div className="flex items-center gap-2 text-blue-500">
                   <span className="text-sm font-medium">View Project</span>
                   <svg
                     className="w-5 h-5 group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform"
@@ -168,17 +168,17 @@ export default function Projects() {
               transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
               className="group"
             >
-              <div className="relative p-6 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-white/10 transition-all duration-500 h-full overflow-hidden">
+              <div className="relative p-6 rounded-2xl bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--border-hover)] transition-all duration-500 h-full overflow-hidden">
                 <div className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${project.gradient} opacity-10 blur-[60px] rounded-full`} />
                 
                 <div className="relative z-10">
-                  <span className="text-xs font-medium text-white/30 tracking-wider uppercase">
+                  <span className="text-xs font-medium text-[var(--text-tertiary)] tracking-wider uppercase">
                     {project.category}
                   </span>
-                  <h3 className="text-xl font-bold text-white mt-2 mb-3 group-hover:text-blue-400 transition-colors">
+                  <h3 className="text-xl font-bold text-[var(--text-primary)] mt-2 mb-3 group-hover:text-blue-500 transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-sm text-white/50 leading-relaxed mb-4 line-clamp-3">
+                  <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-4 line-clamp-3">
                     {project.description}
                   </p>
 
@@ -186,14 +186,14 @@ export default function Projects() {
                     {project.tags.slice(0, 3).map((tag) => (
                       <span
                         key={tag}
-                        className="px-2.5 py-1 text-xs rounded-full bg-white/5 text-white/40"
+                        className="px-2.5 py-1 text-xs rounded-full bg-[var(--surface-hover)] text-[var(--text-tertiary)]"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
 
-                  <div className="flex items-center gap-2 text-white/30 group-hover:text-blue-400 transition-colors">
+                  <div className="flex items-center gap-2 text-[var(--text-tertiary)] group-hover:text-blue-500 transition-colors">
                     <svg
                       className="w-4 h-4"
                       fill="none"

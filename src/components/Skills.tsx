@@ -43,8 +43,8 @@ export default function Skills() {
       id="skills"
       className="relative py-24 sm:py-32 px-6 overflow-hidden"
     >
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-br from-purple-500/10 to-transparent blur-[150px]" />
-      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-gradient-to-tl from-blue-500/10 to-transparent blur-[150px]" />
+      <div className="dark-only absolute top-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-br from-purple-500/10 to-transparent blur-[150px]" />
+      <div className="light-mode-hidden absolute top-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-br from-purple-500/20 to-transparent blur-[150px]" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
@@ -53,13 +53,13 @@ export default function Skills() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-medium text-purple-400 tracking-widest uppercase">
+          <span className="text-sm font-medium text-purple-500 tracking-widest uppercase">
             Expertise
           </span>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mt-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[var(--text-primary)] mt-4">
             Tech Stack
           </h2>
-          <p className="text-white/40 mt-4 max-w-2xl mx-auto">
+          <p className="text-[var(--text-secondary)] mt-4 max-w-2xl mx-auto">
             Technologies and tools I use to bring ideas to life
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto mt-6 rounded-full" />
@@ -74,12 +74,12 @@ export default function Skills() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group"
             >
-              <div className="p-8 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-white/10 transition-all duration-500">
+              <div className="p-8 rounded-2xl bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--border-hover)] transition-all duration-500">
                 <div className="flex items-center gap-4 mb-6">
                   <div className={`p-3 rounded-xl bg-gradient-to-br ${cat.gradient} bg-opacity-20`}>
                     <div className={`w-2 h-2 rounded-full bg-gradient-to-br ${cat.gradient}`} />
                   </div>
-                  <h3 className="text-lg font-semibold text-white">
+                  <h3 className="text-lg font-semibold text-[var(--text-primary)]">
                     {cat.category}
                   </h3>
                 </div>
@@ -94,7 +94,7 @@ export default function Skills() {
                         duration: 0.4,
                         delay: index * 0.1 + skillIndex * 0.05,
                       }}
-                      className="px-4 py-2 text-sm rounded-xl bg-white/[0.03] border border-white/5 text-white/60 hover:text-white hover:border-white/20 hover:bg-white/[0.06] transition-all cursor-default"
+                      className="px-4 py-2 text-sm rounded-xl bg-[var(--surface-hover)] border border-[var(--border)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--border-hover)] transition-all cursor-default"
                     >
                       {skill}
                     </motion.span>
@@ -109,19 +109,19 @@ export default function Skills() {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="p-8 rounded-2xl bg-white/[0.03] border border-white/5"
+          className="p-8 rounded-2xl bg-[var(--surface)] border border-[var(--border)]"
         >
-          <h3 className="text-lg font-semibold text-white mb-8">
+          <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-8">
             Development Tools
           </h3>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {tools.map((tool, index) => (
               <div key={tool.name} className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-white/70">{tool.name}</span>
-                  <span className="text-xs text-white/30">{tool.level}%</span>
+                  <span className="text-sm text-[var(--text-secondary)]">{tool.name}</span>
+                  <span className="text-xs text-[var(--text-tertiary)]">{tool.level}%</span>
                 </div>
-                <div className="h-1.5 rounded-full bg-white/5 overflow-hidden">
+                <div className="h-1.5 rounded-full bg-[var(--surface-hover)] overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={isInView ? { width: `${tool.level}%` } : {}}

@@ -59,8 +59,8 @@ export default function About() {
       id="about"
       className="relative py-24 sm:py-32 px-6 overflow-hidden"
     >
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-blue-500/10 to-transparent blur-[120px]" />
-      <div className="absolute bottom-0 right-0 w-[600px] h-[400px] bg-gradient-to-t from-purple-500/10 to-transparent blur-[100px]" />
+      <div className="dark-only absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-blue-500/10 to-transparent blur-[120px]" />
+      <div className="light-mode-hidden absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-blue-500/20 to-transparent blur-[120px]" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
@@ -69,13 +69,13 @@ export default function About() {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <span className="text-sm font-medium text-blue-400 tracking-widest uppercase">
+          <span className="text-sm font-medium text-blue-500 tracking-widest uppercase">
             About Me
           </span>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mt-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[var(--text-primary)] mt-4">
             Turning Ideas Into
             <br />
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
               Reality
             </span>
           </h2>
@@ -89,12 +89,12 @@ export default function About() {
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="text-center p-6 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-blue-500/30 transition-colors"
+              className="text-center p-6 rounded-2xl bg-[var(--surface)] border border-[var(--border)] hover:border-blue-500/30 transition-colors"
             >
-              <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">
+              <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent mb-2">
                 {stat.value}
               </div>
-              <div className="text-xs sm:text-sm text-white/40 uppercase tracking-wider">
+              <div className="text-xs sm:text-sm text-[var(--text-secondary)] uppercase tracking-wider">
                 {stat.label}
               </div>
             </motion.div>
@@ -108,30 +108,29 @@ export default function About() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="space-y-6"
           >
-            <p className="text-lg text-white/70 leading-relaxed">
-              I&apos;m <span className="text-white font-semibold">Danyal Arshad</span>, a passionate AI & Python Developer 
+            <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
+              I&apos;m <span className="text-[var(--text-primary)] font-semibold">Danyal Arshad</span>, a passionate AI & Python Developer 
               based in Pakistan. My journey in tech is driven by a fascination for how artificial 
               intelligence can solve complex problems and create meaningful impact.
             </p>
-            <p className="text-base text-white/50 leading-relaxed">
+            <p className="text-base text-[var(--text-secondary)] leading-relaxed">
               With expertise in machine learning, natural language processing, and full-stack 
               development, I specialize in delivering projects that combine cutting-edge technology 
-              with exceptional user experience. From AI-powered e-commerce platforms to workflow 
-              automation systems, I transform complex ideas into elegant, scalable solutions.
+              with exceptional user experience.
             </p>
-            <p className="text-base text-white/50 leading-relaxed">
+            <p className="text-base text-[var(--text-secondary)] leading-relaxed">
               When I&apos;m not coding, you&apos;ll find me exploring new AI frameworks, contributing 
               to open-source projects, or sharing knowledge with the developer community.
             </p>
 
             <div className="flex flex-wrap gap-3 pt-4">
-              <span className="px-4 py-2 text-sm rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400">
+              <span className="px-4 py-2 text-sm rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-500">
                 Problem Solver
               </span>
-              <span className="px-4 py-2 text-sm rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400">
+              <span className="px-4 py-2 text-sm rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-500">
                 Detail Oriented
               </span>
-              <span className="px-4 py-2 text-sm rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-400">
+              <span className="px-4 py-2 text-sm rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-500">
                 Innovation Driven
               </span>
             </div>
@@ -143,7 +142,7 @@ export default function About() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="space-y-6"
           >
-            <h3 className="text-xl font-semibold text-white">
+            <h3 className="text-xl font-semibold text-[var(--text-primary)]">
               What I Do Best
             </h3>
             <div className="space-y-4">
@@ -153,17 +152,17 @@ export default function About() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                  className="p-5 rounded-xl bg-white/[0.02] border border-white/5 hover:border-white/10 hover:bg-white/[0.04] transition-all"
+                  className="p-5 rounded-xl bg-[var(--surface)] border border-[var(--border)] hover:bg-[var(--surface-hover)] transition-all"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-lg bg-gradient-to-br from-blue-500/20 to-purple-500/20 text-blue-400">
+                    <div className="p-3 rounded-lg bg-gradient-to-br from-blue-500/20 to-purple-500/20 text-blue-500">
                       {service.icon}
                     </div>
                     <div>
-                      <h4 className="font-semibold text-white mb-1">
+                      <h4 className="font-semibold text-[var(--text-primary)] mb-1">
                         {service.title}
                       </h4>
-                      <p className="text-sm text-white/50 leading-relaxed">
+                      <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
                         {service.description}
                       </p>
                     </div>

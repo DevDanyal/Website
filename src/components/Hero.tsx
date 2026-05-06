@@ -19,8 +19,10 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center px-6 pt-20 overflow-hidden"
     >
       <motion.div style={{ y }} className="absolute inset-0">
-        <div className="absolute top-1/4 left-0 w-full h-[600px] bg-gradient-to-r from-blue-500/10 via-purple-500/5 to-transparent" />
-        <div className="absolute bottom-1/3 right-0 w-full h-[500px] bg-gradient-to-l from-pink-500/10 via-transparent to-transparent" />
+        <div className="light-mode-hidden absolute top-1/4 left-0 w-full h-[600px] bg-gradient-to-r from-blue-500/10 via-purple-500/5 to-transparent" />
+        <div className="light-mode-hidden absolute bottom-1/3 right-0 w-full h-[500px] bg-gradient-to-l from-pink-500/10 via-transparent to-transparent" />
+        <div className="dark-only absolute top-1/4 left-0 w-full h-[600px] bg-gradient-to-r from-blue-500/10 via-purple-500/5 to-transparent" />
+        <div className="dark-only absolute bottom-1/3 right-0 w-full h-[500px] bg-gradient-to-l from-pink-500/10 via-transparent to-transparent" />
       </motion.div>
 
       <motion.div
@@ -36,7 +38,7 @@ export default function Hero() {
           className="mb-8"
         >
           <div className="relative inline-block">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full blur-[40px] opacity-50 animate-pulse" />
+            <div className="dark-only absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full blur-[40px] opacity-50 animate-pulse" />
             <div className="relative w-32 h-32 sm:w-40 sm:h-40 mx-auto rounded-full overflow-hidden border-4 border-white/10 shadow-2xl">
               <img
                 src="/profile.jpg.png"
@@ -61,7 +63,7 @@ export default function Hero() {
           className="mb-6"
         >
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.9]">
-            <span className="text-white">AI & Python</span>
+            <span className="text-[var(--text-primary)]">AI & Python</span>
             <br />
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               Developer
@@ -75,18 +77,18 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="flex items-center justify-center gap-3 mb-8"
         >
-          <div className="h-px w-16 bg-gradient-to-r from-transparent to-white/30" />
-          <p className="text-lg sm:text-xl text-white/50 tracking-wide">
+          <div className="w-16 h-px bg-gradient-to-r from-transparent to-white/30" />
+          <p className="text-lg sm:text-xl text-[var(--text-secondary)] tracking-wide">
             Danyal Arshad
           </p>
-          <div className="h-px w-16 bg-gradient-to-l from-transparent to-white/30" />
+          <div className="w-16 h-px bg-gradient-to-l from-transparent to-white/30" />
         </motion.div>
 
         <motion.p
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-base sm:text-lg text-white/40 max-w-2xl mx-auto mb-12 leading-relaxed px-4"
+          className="text-base sm:text-lg text-[var(--text-secondary)] max-w-2xl mx-auto mb-12 leading-relaxed px-4"
         >
           Building intelligent applications that combine cutting-edge AI technologies 
           with robust backend systems. Specializing in machine learning, NLP, and full-stack development.
@@ -116,7 +118,7 @@ export default function Hero() {
           </a>
           <a
             href="#contact"
-            className="group px-8 py-4 bg-white/5 border border-white/10 text-white font-semibold rounded-xl backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-white/20"
+            className="group px-8 py-4 bg-[var(--surface)] border border-[var(--border)] text-[var(--text-primary)] font-semibold rounded-xl transition-all duration-300 hover:bg-[var(--surface-hover)]"
           >
             <span className="flex items-center gap-2">
               Get In Touch
@@ -143,11 +145,11 @@ export default function Hero() {
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             className="flex flex-col items-center gap-3"
           >
-            <span className="text-[10px] uppercase tracking-[0.3em] text-white/30">
+            <span className="text-[10px] uppercase tracking-[0.3em] text-[var(--text-tertiary)]">
               Scroll Down
             </span>
             <svg
-              className="w-5 h-5 text-white/30"
+              className="w-5 h-5 text-[var(--text-tertiary)]"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -158,7 +160,8 @@ export default function Hero() {
         </motion.div>
       </motion.div>
 
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0F] via-transparent to-transparent pointer-events-none" />
+      <div className="dark-only absolute inset-0 bg-gradient-to-t from-[#0A0A0F] via-transparent to-transparent pointer-events-none" />
+      <div className="light-mode-hidden absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent pointer-events-none" />
     </section>
   );
 }

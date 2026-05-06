@@ -61,9 +61,9 @@ export default function Footer() {
   return (
     <footer
       ref={ref}
-      className="relative bg-gradient-to-b from-background to-[#050508] border-t border-white/5"
+      className="relative bg-[var(--surface)] border-t border-[var(--border)]"
     >
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-gradient-to-b from-blue-500/10 to-transparent blur-[100px]" />
+      <div className="dark-only absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-gradient-to-b from-blue-500/10 to-transparent blur-[100px]" />
       
       <div className="max-w-7xl mx-auto px-6 pt-16 pb-8 relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
@@ -73,15 +73,15 @@ export default function Footer() {
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5 }}
-              className="text-2xl font-bold text-white hover:text-blue-400 transition-colors"
+              className="text-2xl font-bold text-[var(--text-primary)] hover:text-blue-500 transition-colors"
             >
-              DA<span className="text-blue-400">.</span>
+              DA<span className="text-blue-500">.</span>
             </motion.a>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="mt-4 text-sm text-white/40 leading-relaxed max-w-xs"
+              className="mt-4 text-sm text-[var(--text-secondary)] leading-relaxed max-w-xs"
             >
               AI & Python Developer crafting intelligent solutions with cutting-edge technology.
             </motion.p>
@@ -97,7 +97,7 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:bg-blue-500/20 hover:border-blue-500/30 transition-all duration-300"
+                  className="w-10 h-10 rounded-full bg-[var(--surface-hover)] border border-[var(--border)] flex items-center justify-center text-[var(--text-secondary)] hover:text-blue-500 hover:bg-blue-500/20 hover:border-blue-500/30 transition-all duration-300"
                   aria-label={social.name}
                 >
                   {social.icon}
@@ -113,7 +113,7 @@ export default function Footer() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
             >
-              <h4 className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">
+              <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-4 uppercase tracking-wider">
                 {title}
               </h4>
               <ul className="space-y-3">
@@ -121,7 +121,7 @@ export default function Footer() {
                   <li key={link.name}>
                     <a
                       href={link.href}
-                      className="text-sm text-white/50 hover:text-blue-400 transition-colors duration-300"
+                      className="text-sm text-[var(--text-secondary)] hover:text-blue-500 transition-colors duration-300"
                     >
                       {link.name}
                     </a>
@@ -132,13 +132,13 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="border-t border-white/5 pt-8 mt-8">
+        <div className="border-t border-[var(--border)] pt-8 mt-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <motion.p
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="text-sm text-white/30"
+              className="text-sm text-[var(--text-tertiary)]"
             >
               &copy; {new Date().getFullYear()} Danyal Arshad. All rights reserved.
             </motion.p>
@@ -146,7 +146,7 @@ export default function Footer() {
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="flex items-center gap-2 text-sm text-white/30"
+              className="flex items-center gap-2 text-sm text-[var(--text-tertiary)]"
             >
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
