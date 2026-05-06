@@ -27,7 +27,6 @@ import ProjectModal from "@/components/ProjectModal";
 import Newsletter from "@/components/Newsletter";
 import Services from "@/components/Services";
 import ClientLogos from "@/components/ClientLogos";
-import Pricing from "@/components/Pricing";
 import AchievementBadges from "@/components/AchievementBadges";
 import PageTransition from "@/components/PageTransition";
 
@@ -133,37 +132,7 @@ export default function Home() {
           </div>
         </section>
         
-        <Testimonials />
-        
-        {/* Pricing */}
-        <section id="pricing" className="py-20 px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-[var(--text-primary)] mb-4">
-                Transparent <span className="text-[#2563EB]">Pricing</span>
-              </h2>
-              <p className="text-[var(--text-secondary)] max-w-2xl mx-auto">
-                Choose a plan that fits your needs. Custom solutions available for complex projects.
-              </p>
-            </div>
-            <Pricing />
-          </div>
-        </section>
-        
-        {/* FAQ */}
-        <section id="faq" className="py-20 px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-[var(--text-primary)] mb-4">
-                Frequently Asked <span className="text-[#2563EB]">Questions</span>
-              </h2>
-              <p className="text-[var(--text-secondary)] max-w-2xl mx-auto">
-                Got questions? I&apos;ve got answers. If you have more questions, feel free to contact me.
-              </p>
-            </div>
-            <FAQ />
-          </div>
-        </section>
+<Testimonials />
         
         {/* Newsletter */}
         <section className="py-20 px-6">
