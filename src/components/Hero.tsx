@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import TypingAnimation from "./TypingAnimation";
 
 export default function Hero() {
   const containerRef = useRef<HTMLElement>(null);
@@ -19,10 +20,9 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center px-6 pt-20 overflow-hidden"
     >
       <motion.div style={{ y }} className="absolute inset-0">
-        <div className="light-mode-hidden absolute top-1/4 left-0 w-full h-[600px] bg-gradient-to-r from-blue-500/10 via-purple-500/5 to-transparent" />
-        <div className="light-mode-hidden absolute bottom-1/3 right-0 w-full h-[500px] bg-gradient-to-l from-pink-500/10 via-transparent to-transparent" />
         <div className="dark-only absolute top-1/4 left-0 w-full h-[600px] bg-gradient-to-r from-blue-500/10 via-purple-500/5 to-transparent" />
         <div className="dark-only absolute bottom-1/3 right-0 w-full h-[500px] bg-gradient-to-l from-pink-500/10 via-transparent to-transparent" />
+        <div className="light-mode-hidden absolute top-1/4 left-0 w-full h-[600px] bg-gradient-to-r from-blue-500/20 via-purple-500/10 to-transparent" />
       </motion.div>
 
       <motion.div
@@ -39,15 +39,19 @@ export default function Hero() {
         >
           <div className="relative inline-block">
             <div className="dark-only absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full blur-[40px] opacity-50 animate-pulse" />
-            <div className="relative w-32 h-32 sm:w-40 sm:h-40 mx-auto rounded-full overflow-hidden border-4 border-white/10 shadow-2xl">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="relative w-32 h-32 sm:w-40 sm:h-40 mx-auto rounded-full overflow-hidden border-4 border-[var(--border)] shadow-2xl"
+            >
               <img
                 src="/profile.jpg.png"
                 alt="Danyal Arshad"
                 className="w-full h-full object-cover"
               />
-            </div>
+            </motion.div>
             <motion.div
-              className="absolute -bottom-1 -right-1 w-8 h-8 bg-emerald-500 rounded-full border-4 border-background flex items-center justify-center"
+              className="absolute -bottom-1 -right-1 w-8 h-8 bg-emerald-500 rounded-full border-4 border-[var(--background)] flex items-center justify-center"
               animate={{ scale: [1, 1.1, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
@@ -63,10 +67,10 @@ export default function Hero() {
           className="mb-6"
         >
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.9]">
-            <span className="text-[var(--text-primary)]">AI & Python</span>
+            <span className="text-[var(--text-primary)]">Danyal</span>
             <br />
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Developer
+              Arshad
             </span>
           </h1>
         </motion.div>
@@ -75,13 +79,15 @@ export default function Hero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex items-center justify-center gap-3 mb-8"
+          className="mb-8"
         >
-          <div className="w-16 h-px bg-gradient-to-r from-transparent to-white/30" />
-          <p className="text-lg sm:text-xl text-[var(--text-secondary)] tracking-wide">
-            Danyal Arshad
-          </p>
-          <div className="w-16 h-px bg-gradient-to-l from-transparent to-white/30" />
+          <div className="flex items-center justify-center gap-3">
+            <div className="h-px w-16 bg-gradient-to-r from-transparent to-[var(--text-tertiary)]" />
+            <p className="text-lg sm:text-xl text-[var(--text-secondary)] tracking-wide">
+              <TypingAnimation />
+            </p>
+            <div className="h-px w-16 bg-gradient-to-l from-transparent to-[var(--text-tertiary)]" />
+          </div>
         </motion.div>
 
         <motion.p
@@ -100,9 +106,11 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 1 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <a
+          <motion.a
             href="#projects"
-            className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-[0_0_30px_rgba(59,130,246,0.4)] hover:-translate-y-1"
+            whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(59, 130, 246, 0.4)" }}
+            whileTap={{ scale: 0.95 }}
+            className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl transition-all duration-300"
           >
             <span className="relative z-10 flex items-center gap-2">
               View My Work
@@ -115,15 +123,17 @@ export default function Hero() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </span>
-          </a>
-          <a
+          </motion.a>
+          <motion.a
             href="#contact"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             className="group px-8 py-4 bg-[var(--surface)] border border-[var(--border)] text-[var(--text-primary)] font-semibold rounded-xl transition-all duration-300 hover:bg-[var(--surface-hover)]"
           >
             <span className="flex items-center gap-2">
               Get In Touch
               <svg
-                className="w-5 h-5 text-blue-400"
+                className="w-5 h-5 text-blue-500"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -131,7 +141,7 @@ export default function Hero() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
             </span>
-          </a>
+          </motion.a>
         </motion.div>
 
         <motion.div

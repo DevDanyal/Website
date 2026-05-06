@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { AnimatedCounter } from "./AnimatedCounter";
 
 const stats = [
   { value: "3+", label: "Years Experience", icon: "years" },
@@ -83,22 +84,58 @@ export default function About() {
         </motion.div>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 mb-20">
-          {stats.map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="text-center p-6 rounded-2xl bg-[var(--surface)] border border-[var(--border)] hover:border-blue-500/30 transition-colors"
-            >
-              <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent mb-2">
-                {stat.value}
-              </div>
-              <div className="text-xs sm:text-sm text-[var(--text-secondary)] uppercase tracking-wider">
-                {stat.label}
-              </div>
-            </motion.div>
-          ))}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0 }}
+            className="text-center p-6 rounded-2xl bg-[var(--surface)] border border-[var(--border)] hover:border-blue-500/30 transition-colors"
+          >
+            <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent mb-2">
+              <AnimatedCounter end={3} suffix="+" />
+            </div>
+            <div className="text-xs sm:text-sm text-[var(--text-secondary)] uppercase tracking-wider">
+              Years Experience
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-center p-6 rounded-2xl bg-[var(--surface)] border border-[var(--border)] hover:border-blue-500/30 transition-colors"
+          >
+            <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent mb-2">
+              <AnimatedCounter end={20} suffix="+" />
+            </div>
+            <div className="text-xs sm:text-sm text-[var(--text-secondary)] uppercase tracking-wider">
+              Projects Completed
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-center p-6 rounded-2xl bg-[var(--surface)] border border-[var(--border)] hover:border-blue-500/30 transition-colors"
+          >
+            <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent mb-2">
+              <AnimatedCounter end={15} suffix="+" />
+            </div>
+            <div className="text-xs sm:text-sm text-[var(--text-secondary)] uppercase tracking-wider">
+              Happy Clients
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-center p-6 rounded-2xl bg-[var(--surface)] border border-[var(--border)] hover:border-blue-500/30 transition-colors"
+          >
+            <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent mb-2">
+              <AnimatedCounter end={10} suffix="+" />
+            </div>
+            <div className="text-xs sm:text-sm text-[var(--text-secondary)] uppercase tracking-wider">
+              AI Solutions
+            </div>
+          </motion.div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -13,9 +13,19 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import AnimatedBackground from "@/components/AnimatedBackground";
 import ScrollProgress from "@/components/ScrollProgress";
+import CommandPalette from "@/components/CommandPalette";
+import PageLoader from "@/components/PageLoader";
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
   const mouse = useRef({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -28,6 +38,10 @@ export default function Home() {
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
+
+  if (isLoading) {
+    return <PageLoader />;
+  }
 
   return (
     <main className="relative">
@@ -43,6 +57,7 @@ export default function Home() {
       <Testimonials />
       <Contact />
       <Footer />
+      <CommandPalette />
     </main>
   );
 }
