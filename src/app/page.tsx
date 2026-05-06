@@ -19,6 +19,17 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import CookieConsent from "@/components/CookieConsent";
 import VisitorCounter from "@/components/VisitorCounter";
 import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
+import SkillBars from "@/components/SkillBars";
+import FAQ from "@/components/FAQ";
+import ResumeDownload from "@/components/ResumeDownload";
+import ExperienceTimeline from "@/components/ExperienceTimeline";
+import ProjectModal from "@/components/ProjectModal";
+import Newsletter from "@/components/Newsletter";
+import Services from "@/components/Services";
+import ClientLogos from "@/components/ClientLogos";
+import Pricing from "@/components/Pricing";
+import AchievementBadges from "@/components/AchievementBadges";
+import PageTransition from "@/components/PageTransition";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -48,24 +59,140 @@ export default function Home() {
   }
 
   return (
-    <main className="relative">
-      <ScrollProgress />
-      <AnimatedBackground mouse={mouse} />
-      <Navigation />
-      <Hero />
-      <About />
-      <Projects />
-      <Skills />
-      <GitHubStats />
-      <Certifications />
-      <Testimonials />
-      <Contact />
-      <Footer />
-      <CommandPalette />
-      <WhatsAppButton />
-      <CookieConsent />
-      <VisitorCounter />
-      <ServiceWorkerRegister />
-    </main>
+    <PageTransition>
+      <main className="relative">
+        <ScrollProgress />
+        <AnimatedBackground mouse={mouse} />
+        <Navigation />
+        <Hero />
+        
+        {/* Achievement Badges */}
+        <section id="achievements" className="py-20 px-6">
+          <div className="max-w-6xl mx-auto">
+            <AchievementBadges />
+          </div>
+        </section>
+        
+        <About />
+        
+        {/* Experience Timeline */}
+        <section id="experience" className="py-20 px-6 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-[var(--text-primary)] mb-4">
+                Work <span className="text-[#2563EB]">Experience</span>
+              </h2>
+              <p className="text-[var(--text-secondary)] max-w-2xl mx-auto">
+                A journey through my professional career and the amazing projects I&apos;ve worked on.
+              </p>
+            </div>
+            <ExperienceTimeline />
+          </div>
+        </section>
+        
+        <Services />
+        
+        {/* Projects with Modal */}
+        <section id="projects" className="py-20 px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-[var(--text-primary)] mb-4">
+                Featured <span className="text-[#2563EB]">Projects</span>
+              </h2>
+              <p className="text-[var(--text-secondary)] max-w-2xl mx-auto">
+                Click on any project to see detailed information, technologies used, and key features.
+              </p>
+            </div>
+            <ProjectModal />
+          </div>
+        </section>
+        
+        {/* Skill Bars */}
+        <section id="skills-detail" className="py-20 px-6 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-[var(--text-primary)] mb-4">
+                Technical <span className="text-[#2563EB]">Skills</span>
+              </h2>
+              <p className="text-[var(--text-secondary)] max-w-2xl mx-auto">
+                My expertise across different technology domains.
+              </p>
+            </div>
+            <SkillBars />
+          </div>
+        </section>
+        
+        <Skills />
+        <GitHubStats />
+        <Certifications />
+        
+        {/* Client Logos */}
+        <section className="py-12 px-6">
+          <div className="max-w-6xl mx-auto">
+            <ClientLogos />
+          </div>
+        </section>
+        
+        <Testimonials />
+        
+        {/* Pricing */}
+        <section id="pricing" className="py-20 px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-[var(--text-primary)] mb-4">
+                Transparent <span className="text-[#2563EB]">Pricing</span>
+              </h2>
+              <p className="text-[var(--text-secondary)] max-w-2xl mx-auto">
+                Choose a plan that fits your needs. Custom solutions available for complex projects.
+              </p>
+            </div>
+            <Pricing />
+          </div>
+        </section>
+        
+        {/* FAQ */}
+        <section id="faq" className="py-20 px-6 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-[var(--text-primary)] mb-4">
+                Frequently Asked <span className="text-[#2563EB]">Questions</span>
+              </h2>
+              <p className="text-[var(--text-secondary)] max-w-2xl mx-auto">
+                Got questions? I&apos;ve got answers. If you have more questions, feel free to contact me.
+              </p>
+            </div>
+            <FAQ />
+          </div>
+        </section>
+        
+        {/* Newsletter */}
+        <section className="py-20 px-6">
+          <div className="max-w-4xl mx-auto">
+            <Newsletter />
+          </div>
+        </section>
+        
+        {/* Resume Download CTA */}
+        <section className="py-20 px-6 bg-gradient-to-r from-[#2563EB]/10 to-[#06B6D4]/10">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-4">
+              Interested in working together?
+            </h2>
+            <p className="text-[var(--text-secondary)] mb-8 max-w-2xl mx-auto">
+              Download my resume to learn more about my experience, skills, and achievements.
+            </p>
+            <ResumeDownload />
+          </div>
+        </section>
+        
+        <Contact />
+        <Footer />
+        <CommandPalette />
+        <WhatsAppButton />
+        <CookieConsent />
+        <VisitorCounter />
+        <ServiceWorkerRegister />
+      </main>
+    </PageTransition>
   );
 }
