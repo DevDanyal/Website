@@ -2,19 +2,20 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ExternalLink, Code, Users, Calendar, ChevronRight } from "lucide-react";
+import Image from "next/image";
+import { X, ExternalLink, Calendar, ChevronRight } from "lucide-react";
 
 interface Project {
   id: number;
   title: string;
   category: string;
-  image: string;
+  image?: string;
+  emoji: string;
   description: string;
   fullDescription: string;
   technologies: string[];
   features: string[];
   demo?: string;
-  client?: string;
   duration?: string;
 }
 
@@ -23,7 +24,7 @@ const projects: Project[] = [
     id: 1,
     title: "AI Dev Danyal",
     category: "AI & E-Commerce",
-    image: "🤖",
+    emoji: "🤖",
     description: "AI-powered e-commerce & SaaS portfolio with modern dark theme",
     fullDescription: "A cutting-edge AI-powered portfolio showcasing advanced e-commerce features and SaaS capabilities. Features include intelligent product recommendations, automated customer support, real-time analytics dashboard, and seamless payment integration. Built with modern web technologies and optimized for performance.",
     technologies: ["Next.js", "TypeScript", "OpenAI", "LangChain", "Stripe", "PostgreSQL"],
@@ -35,7 +36,8 @@ const projects: Project[] = [
     id: 2,
     title: "Danyal Portfolio",
     category: "Web Development",
-    image: "💼",
+    image: "/projects/Danyal_portfolio.png",
+    emoji: "💼",
     description: "Full-stack developer portfolio with services and skills showcase",
     fullDescription: "A comprehensive developer portfolio featuring services showcase, interactive skills demonstration, and professional testimonials. The design emphasizes clean aesthetics with smooth animations and intuitive navigation. Includes contact form with email integration and social media links.",
     technologies: ["Next.js", "React", "TailwindCSS", "Framer Motion", "Node.js", "MongoDB"],
@@ -47,7 +49,8 @@ const projects: Project[] = [
     id: 3,
     title: "Danyal Arshad",
     category: "Web Development",
-    image: "🌐",
+    image: "/projects/portfolio.png",
+    emoji: "🌐",
     description: "Premium web developer portfolio with progress bars and dark theme",
     fullDescription: "A premium portfolio website featuring animated progress bars showcasing technical skills, timeline-based experience section, and project showcases. The dark theme creates a professional atmosphere while maintaining excellent readability and accessibility.",
     technologies: ["Next.js", "TypeScript", "TailwindCSS", "GSAP", "Three.js", "Vercel"],
@@ -59,7 +62,7 @@ const projects: Project[] = [
     id: 4,
     title: "Dev Danyal Website",
     category: "Blog & Portfolio",
-    image: "📝",
+    emoji: "📝",
     description: "Dark theme portfolio with integrated blog section",
     fullDescription: "A modern portfolio website featuring an integrated blog section for sharing technical insights and tutorials. Includes markdown support, categories, search functionality, and comment system. Perfect for establishing thought leadership in the developer community.",
     technologies: ["Next.js", "MDX", "TailwindCSS", "Prisma", "PostgreSQL", "Disqus"],
@@ -71,7 +74,8 @@ const projects: Project[] = [
     id: 5,
     title: "Homework Manager",
     category: "Web Application",
-    image: "📚",
+    image: "/projects/homework-manager.png",
+    emoji: "📚",
     description: "Assignment tracking and management application",
     fullDescription: "A practical web application designed for students to track assignments, deadlines, and academic progress. Features include assignment categorization, due date reminders, progress tracking, grade calculation, and calendar integration. Built with focus on usability and mobile responsiveness.",
     technologies: ["React", "TypeScript", "Node.js", "Express", "MongoDB", "JWT Auth"],
@@ -83,7 +87,8 @@ const projects: Project[] = [
     id: 6,
     title: "FinFlow",
     category: "Finance App",
-    image: "💰",
+    image: "/projects/financial-manager.png",
+    emoji: "💰",
     description: "Financial management app with dashboard and analytics",
     fullDescription: "A comprehensive financial management application featuring expense tracking, budget planning, investment portfolio monitoring, and financial analytics. Includes visual reports, spending insights, savings goals, and multi-currency support for personal finance management.",
     technologies: ["React", "Next.js", "TypeScript", "D3.js", "PostgreSQL", "Plaid API"],
@@ -109,10 +114,21 @@ export default function ProjectModal() {
             onClick={() => setSelectedProject(project)}
             className="group cursor-pointer bg-white/[0.02] border border-white/5 rounded-2xl overflow-hidden hover:border-[#2563EB]/30 transition-all duration-300"
           >
-            <div className="relative h-48 bg-gradient-to-br from-[#2563EB]/10 to-[#06B6D4]/10 flex items-center justify-center">
-              <span className="text-6xl group-hover:scale-110 transition-transform duration-300">
-                {project.image}
-              </span>
+            <div className="relative h-48 bg-gradient-to-br from-[#2563EB]/10 to-[#06B6D4]/10 overflow-hidden">
+              {project.image ? (
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              ) : (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="text-6xl group-hover:scale-110 transition-transform duration-300">
+                    {project.emoji}
+                  </span>
+                </div>
+              )}
               <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                 <span className="px-4 py-2 bg-white text-gray-900 rounded-lg font-medium flex items-center gap-2">
                   View Details <ChevronRight className="w-4 h-4" />
@@ -171,8 +187,19 @@ export default function ProjectModal() {
                 <X className="w-5 h-5" />
               </button>
 
-              <div className="h-64 bg-gradient-to-br from-[#2563EB]/20 to-[#06B6D4]/20 flex items-center justify-center">
-                <span className="text-8xl">{selectedProject.image}</span>
+              <div className="relative h-80 bg-gradient-to-br from-[#2563EB]/20 to-[#06B6D4]/20 overflow-hidden">
+                {selectedProject.image ? (
+                  <Image
+                    src={selectedProject.image}
+                    alt={selectedProject.title}
+                    fill
+                    className="object-cover"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-8xl">{selectedProject.emoji}</span>
+                  </div>
+                )}
               </div>
 
               <div className="p-8">
