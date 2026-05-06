@@ -22,6 +22,11 @@ const footerLinks = {
     { name: "Email", href: "mailto:aidevdanyal@gmail.com" },
     { name: "WhatsApp", href: "https://wa.me/923464141007" },
   ],
+  Legal: [
+    { name: "Privacy Policy", href: "/privacy" },
+    { name: "Terms of Service", href: "/terms" },
+    { name: "Cookie Policy", href: "/privacy" },
+  ],
 };
 
 const socialLinks = [
@@ -146,13 +151,15 @@ export default function Footer() {
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="flex items-center gap-2 text-sm text-[var(--text-tertiary)]"
+              className="flex items-center gap-4 text-sm text-[var(--text-tertiary)]"
             >
+              <a href="/privacy" className="hover:text-blue-500 transition-colors">Privacy</a>
+              <a href="/terms" className="hover:text-blue-500 transition-colors">Terms</a>
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
               </span>
-              Available for freelance work
+              Available for freelance
             </motion.div>
           </div>
         </div>

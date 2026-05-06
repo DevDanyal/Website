@@ -63,6 +63,16 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-touch-icon.png",
   },
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "Danyal Arshad",
+  },
+  applicationName: "Danyal Arshad Portfolio",
+  verification: {
+    google: "google-site-verification-code",
+  },
 };
 
 export default function RootLayout({

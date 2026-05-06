@@ -15,6 +15,10 @@ import AnimatedBackground from "@/components/AnimatedBackground";
 import ScrollProgress from "@/components/ScrollProgress";
 import CommandPalette from "@/components/CommandPalette";
 import PageLoader from "@/components/PageLoader";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import CookieConsent from "@/components/CookieConsent";
+import VisitorCounter from "@/components/VisitorCounter";
+import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -58,6 +62,10 @@ export default function Home() {
       <Contact />
       <Footer />
       <CommandPalette />
+      <WhatsAppButton />
+      <CookieConsent />
+      <VisitorCounter />
+      <ServiceWorkerRegister />
     </main>
   );
 }
