@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ExternalLink, Code, Users, Calendar, ChevronRight, Terminal } from "lucide-react";
+import { X, ExternalLink, Code, Users, Calendar, ChevronRight } from "lucide-react";
 
 interface Project {
   id: number;
@@ -13,101 +13,83 @@ interface Project {
   fullDescription: string;
   technologies: string[];
   features: string[];
-  github?: string;
   demo?: string;
   client?: string;
   duration?: string;
-  role?: string;
 }
 
 const projects: Project[] = [
   {
     id: 1,
-    title: "AI-Powered Chatbot",
-    category: "AI & NLP",
+    title: "AI Dev Danyal",
+    category: "AI & E-Commerce",
     image: "🤖",
-    description: "Intelligent chatbot with natural language understanding",
-    fullDescription: "A sophisticated AI chatbot built with LangChain and OpenAI's GPT models. Features include contextual memory, multi-turn conversations, document analysis, and custom knowledge base integration. The system handles 10,000+ daily conversations with 95% accuracy.",
-    technologies: ["Python", "LangChain", "OpenAI", "FastAPI", "PostgreSQL", "Redis"],
-    features: ["Natural Language Processing", "Contextual Memory", "Multi-language Support", "Custom Training", "Analytics Dashboard", "Webhook Integration"],
-    github: "https://github.com/DevDanyal",
-    demo: "https://demo.com",
-    client: "TechCorp Inc.",
+    description: "AI-powered e-commerce & SaaS portfolio with modern dark theme",
+    fullDescription: "A cutting-edge AI-powered portfolio showcasing advanced e-commerce features and SaaS capabilities. Features include intelligent product recommendations, automated customer support, real-time analytics dashboard, and seamless payment integration. Built with modern web technologies and optimized for performance.",
+    technologies: ["Next.js", "TypeScript", "OpenAI", "LangChain", "Stripe", "PostgreSQL"],
+    features: ["AI Chatbot", "Product Recommendations", "Analytics Dashboard", "Payment Integration", "Dark Theme UI", "Responsive Design"],
+    demo: "https://aidevdanyal.vercel.app/",
     duration: "3 months",
-    role: "Lead Developer",
   },
   {
     id: 2,
-    title: "E-Commerce Platform",
-    category: "Full-Stack",
-    image: "🛒",
-    description: "Modern e-commerce solution with AI recommendations",
-    fullDescription: "A complete e-commerce platform featuring AI-powered product recommendations, real-time inventory management, automated customer support, and advanced analytics. Integrated with Stripe and multiple payment gateways.",
-    technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "TailwindCSS", "Stripe"],
-    features: ["AI Recommendations", "Real-time Analytics", "Inventory Management", "Multi-vendor Support", "Mobile Optimized", "SEO Built-in"],
-    github: "https://github.com/DevDanyal",
-    demo: "https://demo.com",
-    client: "ShopSmart",
-    duration: "4 months",
-    role: "Full-Stack Developer",
+    title: "Danyal Portfolio",
+    category: "Web Development",
+    image: "💼",
+    description: "Full-stack developer portfolio with services and skills showcase",
+    fullDescription: "A comprehensive developer portfolio featuring services showcase, interactive skills demonstration, and professional testimonials. The design emphasizes clean aesthetics with smooth animations and intuitive navigation. Includes contact form with email integration and social media links.",
+    technologies: ["Next.js", "React", "TailwindCSS", "Framer Motion", "Node.js", "MongoDB"],
+    features: ["Services Showcase", "Interactive Skills", "Testimonials", "Contact Form", "Smooth Animations", "SEO Optimized"],
+    demo: "https://danyalportfolio-ten.vercel.app/",
+    duration: "2 months",
   },
   {
     id: 3,
-    title: "ML Pipeline System",
-    category: "Machine Learning",
-    image: "⚡",
-    description: "Automated machine learning workflow platform",
-    fullDescription: "An end-to-end ML pipeline system that automates data preprocessing, model training, hyperparameter tuning, and deployment. Features include experiment tracking, model versioning, and A/B testing capabilities.",
-    technologies: ["Python", "TensorFlow", "MLflow", "Docker", "Kubernetes", "AWS"],
-    features: ["AutoML", "Experiment Tracking", "Model Registry", "CI/CD for ML", "Monitoring", "Alerting"],
-    github: "https://github.com/DevDanyal",
-    client: "DataFlow AI",
-    duration: "5 months",
-    role: "ML Engineer",
+    title: "Danyal Arshad",
+    category: "Web Development",
+    image: "🌐",
+    description: "Premium web developer portfolio with progress bars and dark theme",
+    fullDescription: "A premium portfolio website featuring animated progress bars showcasing technical skills, timeline-based experience section, and project showcases. The dark theme creates a professional atmosphere while maintaining excellent readability and accessibility.",
+    technologies: ["Next.js", "TypeScript", "TailwindCSS", "GSAP", "Three.js", "Vercel"],
+    features: ["Animated Progress Bars", "Experience Timeline", "Project Showcase", "Dark Theme", "3D Elements", "Performance Optimized"],
+    demo: "https://danyalarshadportfolio.vercel.app/",
+    duration: "2 months",
   },
   {
     id: 4,
-    title: "Real-Time Dashboard",
-    category: "Data Visualization",
-    image: "📊",
-    description: "Interactive analytics dashboard with live data",
-    fullDescription: "A real-time analytics dashboard built for monitoring business metrics. Features live data streaming, customizable widgets, automated reports, and anomaly detection with instant alerts.",
-    technologies: ["React", "D3.js", "WebSocket", "PostgreSQL", "Node.js", "Chart.js"],
-    features: ["Live Updates", "Custom Widgets", "Export Reports", "Role-based Access", "API Integration", "Mobile App"],
-    github: "https://github.com/DevDanyal",
-    demo: "https://demo.com",
-    client: "AnalyticsPro",
-    duration: "2 months",
-    role: "Frontend Lead",
+    title: "Dev Danyal Website",
+    category: "Blog & Portfolio",
+    image: "📝",
+    description: "Dark theme portfolio with integrated blog section",
+    fullDescription: "A modern portfolio website featuring an integrated blog section for sharing technical insights and tutorials. Includes markdown support, categories, search functionality, and comment system. Perfect for establishing thought leadership in the developer community.",
+    technologies: ["Next.js", "MDX", "TailwindCSS", "Prisma", "PostgreSQL", "Disqus"],
+    features: ["Blog Integration", "Markdown Support", "Categories & Tags", "Search Function", "Comments System", "SEO Friendly"],
+    demo: "https://dev-danyal-website.vercel.app/",
+    duration: "3 months",
   },
   {
     id: 5,
-    title: "Automation Scripts",
-    category: "DevOps",
-    image: "🔧",
-    description: "Enterprise automation solutions for workflows",
-    fullDescription: "Comprehensive automation suite for enterprise workflows including scheduled tasks, triggered jobs, and event-driven processing. Reduces manual work by 80% with reliable error handling and logging.",
-    technologies: ["Python", "Redis", "RabbitMQ", "Docker", "Ansible", "Terraform"],
-    features: ["Task Scheduling", "Event Processing", "Error Handling", "Detailed Logging", "Auto-recovery", "Multi-environment"],
-    github: "https://github.com/DevDanyal",
-    client: "Enterprise Co.",
-    duration: "3 months",
-    role: "DevOps Engineer",
+    title: "Homework Manager",
+    category: "Web Application",
+    image: "📚",
+    description: "Assignment tracking and management application",
+    fullDescription: "A practical web application designed for students to track assignments, deadlines, and academic progress. Features include assignment categorization, due date reminders, progress tracking, grade calculation, and calendar integration. Built with focus on usability and mobile responsiveness.",
+    technologies: ["React", "TypeScript", "Node.js", "Express", "MongoDB", "JWT Auth"],
+    features: ["Assignment Tracking", "Deadline Reminders", "Progress Analytics", "Grade Calculator", "Calendar View", "Mobile Responsive"],
+    demo: "https://homework-manager-app.vercel.app/",
+    duration: "2 months",
   },
   {
     id: 6,
-    title: "Content Management",
-    category: "Web App",
-    image: "📝",
-    description: "Headless CMS with API-first architecture",
-    fullDescription: "A modern headless CMS designed for content-heavy applications. Features a visual editor, version control, multi-language support, and a powerful GraphQL API for seamless integrations.",
-    technologies: ["Next.js", "GraphQL", "PostgreSQL", "AWS S3", "TailwindCSS", "Framer Motion"],
-    features: ["Visual Editor", "Version Control", "Multi-language", "Media Library", "Custom Fields", "API Access"],
-    github: "https://github.com/DevDanyal",
-    demo: "https://demo.com",
-    client: "MediaHub",
+    title: "FinFlow",
+    category: "Finance App",
+    image: "💰",
+    description: "Financial management app with dashboard and analytics",
+    fullDescription: "A comprehensive financial management application featuring expense tracking, budget planning, investment portfolio monitoring, and financial analytics. Includes visual reports, spending insights, savings goals, and multi-currency support for personal finance management.",
+    technologies: ["React", "Next.js", "TypeScript", "D3.js", "PostgreSQL", "Plaid API"],
+    features: ["Expense Tracking", "Budget Planning", "Investment Portfolio", "Financial Reports", "Multi-currency", "Data Visualization"],
+    demo: "https://financial-manager-app-9xk1.vercel.app/",
     duration: "4 months",
-    role: "Full-Stack Developer",
   },
 ];
 
@@ -208,26 +190,12 @@ export default function ProjectModal() {
                   {selectedProject.fullDescription}
                 </p>
 
-                <div className="grid md:grid-cols-3 gap-4 mb-8">
-                  <div className="flex items-center gap-3">
-                    <Users className="w-5 h-5 text-[#2563EB]" />
-                    <div>
-                      <p className="text-xs text-[var(--text-secondary)]">Client</p>
-                      <p className="text-[var(--text-primary)] font-medium">{selectedProject.client}</p>
-                    </div>
-                  </div>
+                <div className="grid md:grid-cols-2 gap-4 mb-8">
                   <div className="flex items-center gap-3">
                     <Calendar className="w-5 h-5 text-[#2563EB]" />
                     <div>
                       <p className="text-xs text-[var(--text-secondary)]">Duration</p>
                       <p className="text-[var(--text-primary)] font-medium">{selectedProject.duration}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Terminal className="w-5 h-5 text-[#2563EB]" />
-                    <div>
-                      <p className="text-xs text-[var(--text-secondary)]">Role</p>
-                      <p className="text-[var(--text-primary)] font-medium">{selectedProject.role}</p>
                     </div>
                   </div>
                 </div>
@@ -263,17 +231,6 @@ export default function ProjectModal() {
                 </div>
 
                 <div className="flex flex-wrap gap-4">
-                  {selectedProject.github && (
-                    <a
-                      href={selectedProject.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 rounded-lg text-[var(--text-primary)] transition-colors"
-                    >
-                      <Code className="w-5 h-5" />
-                      View Code
-                    </a>
-                  )}
                   {selectedProject.demo && (
                     <a
                       href={selectedProject.demo}
@@ -282,7 +239,7 @@ export default function ProjectModal() {
                       className="flex items-center gap-2 px-6 py-3 bg-[#2563EB] hover:bg-[#1d4ed8] rounded-lg text-white transition-colors"
                     >
                       <ExternalLink className="w-5 h-5" />
-                      Live Demo
+                      View Live
                     </a>
                   )}
                 </div>
