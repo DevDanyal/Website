@@ -76,7 +76,7 @@ export default function Home() {
         <About />
         
         {/* Experience Timeline */}
-        <section id="experience" className="py-20 px-6 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent">
+        <section id="experience" className="py-20 px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-[var(--text-primary)] mb-4">
@@ -108,7 +108,7 @@ export default function Home() {
         </section>
         
         {/* Skill Bars */}
-        <section id="skills-detail" className="py-20 px-6 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent">
+        <section id="skills-detail" className="py-20 px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-[var(--text-primary)] mb-4">
@@ -151,7 +151,7 @@ export default function Home() {
         </section>
         
         {/* FAQ */}
-        <section id="faq" className="py-20 px-6 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent">
+        <section id="faq" className="py-20 px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-[var(--text-primary)] mb-4">
