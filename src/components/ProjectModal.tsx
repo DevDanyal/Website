@@ -35,7 +35,7 @@ const projects: Project[] = [
     id: 2,
     title: "Danyal Portfolio",
     category: "Web Development",
-    image: "/projects/Danyal_portfolio.png",
+    image: "/projects/dev-danyal.png",
     description: "Full-stack developer portfolio with services and skills showcase",
     fullDescription: "A comprehensive developer portfolio featuring services showcase, interactive skills demonstration, and professional testimonials. The design emphasizes clean aesthetics with smooth animations and intuitive navigation. Includes contact form with email integration and social media links.",
     technologies: ["Next.js", "React", "TailwindCSS", "Framer Motion", "Node.js", "MongoDB"],
@@ -47,7 +47,7 @@ const projects: Project[] = [
     id: 3,
     title: "Danyal Arshad",
     category: "Web Development",
-    image: "/projects/portfolio.png",
+    image: "/projects/danyal_arshad.png",
     description: "Premium web developer portfolio with progress bars and dark theme",
     fullDescription: "A premium portfolio website featuring animated progress bars showcasing technical skills, timeline-based experience section, and project showcases. The dark theme creates a professional atmosphere while maintaining excellent readability and accessibility.",
     technologies: ["Next.js", "TypeScript", "TailwindCSS", "GSAP", "Three.js", "Vercel"],
@@ -59,7 +59,7 @@ const projects: Project[] = [
     id: 4,
     title: "Dev Danyal Website",
     category: "Blog & Portfolio",
-    image: "/projects/dev-danyal.png",
+    image: "/projects/portfolio.png",
     description: "Dark theme portfolio with integrated blog section",
     fullDescription: "A modern portfolio website featuring an integrated blog section for sharing technical insights and tutorials. Includes markdown support, categories, search functionality, and comment system. Perfect for establishing thought leadership in the developer community.",
     technologies: ["Next.js", "MDX", "TailwindCSS", "Prisma", "PostgreSQL", "Disqus"],
@@ -110,12 +110,20 @@ export default function ProjectModal() {
             className="group cursor-pointer bg-white/[0.02] border border-white/5 rounded-2xl overflow-hidden hover:border-[#2563EB]/30 transition-all duration-300"
           >
             <div className="relative h-48 bg-gradient-to-br from-[#2563EB]/10 to-[#06B6D4]/10 overflow-hidden">
-              <Image
-                src={project.image}
-                alt={project.title}
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-300"
-              />
+              {project.image ? (
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              ) : (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="text-4xl font-bold text-white/20">
+                    {project.title.charAt(0)}
+                  </span>
+                </div>
+              )}
               <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                 <span className="px-4 py-2 bg-white text-gray-900 rounded-lg font-medium flex items-center gap-2">
                   View Details <ChevronRight className="w-4 h-4" />

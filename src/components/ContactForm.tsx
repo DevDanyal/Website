@@ -30,24 +30,9 @@ export default function ContactForm() {
     e.preventDefault();
     if (!validateForm()) return;
 
-    setStatus("sending");
-    
-    try {
-      const response = await fetch("https://formspree.io/f/your-form-id", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formState),
-      });
-      
-      if (response.ok) {
-        setStatus("success");
-        setFormState({ name: "", email: "", subject: "", message: "" });
-      } else {
-        setStatus("error");
-      }
-    } catch {
-      setStatus("error");
-    }
+    const subject = formState.subject ? `[Portfolio] ${formState.subject}` : '[Portfolio] New Message';
+    const body = `Name: ${formState.name}%0D%0AEmail: ${formState.email}%0D%0A%0D%0AMessage:%0D%0A${encodeURIComponent(formState.message)}`;
+    window.location.href = `mailto:aidevdanyal@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {

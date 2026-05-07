@@ -88,36 +88,64 @@ export default function Contact() {
           <div className="space-y-6">
             <div className="grid sm:grid-cols-2 gap-4">
               {contactInfo.map((contact, index) => (
-                <motion.a
-                  key={contact.name}
-                  href={contact.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                  className="group"
-                >
-                  <div className="p-6 rounded-2xl bg-[var(--surface)] border border-[var(--border)] hover:bg-[var(--surface-hover)] transition-all duration-500">
-                    <div className="flex items-center gap-4">
-                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
-                        contact.color === "blue" ? "bg-blue-500/20 text-blue-500" :
-                        contact.color === "purple" ? "bg-purple-500/20 text-purple-500" :
-                        "bg-green-500/20 text-green-500"
-                      }`}>
-                        {contact.icon}
-                      </div>
-                      <div>
-                        <div className="text-xs text-[var(--text-tertiary)] uppercase tracking-wider mb-1">
-                          {contact.name}
+                contact.name === "Email" ? (
+                  <a
+                    key={contact.name}
+                    href="mailto:aidevdanyal@gmail.com"
+                    className="block"
+                  >
+                    <motion.div
+                      initial={{ opacity: 0, y: 40 }}
+                      animate={isInView ? { opacity: 1, y: 0 } : {}}
+                      transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                      className="p-6 rounded-2xl bg-[var(--surface)] border border-[var(--border)] hover:bg-[var(--surface-hover)] transition-all duration-500 cursor-pointer"
+                    >
+                      <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-blue-500/20 text-blue-500">
+                          {contact.icon}
                         </div>
-                        <div className="text-sm sm:text-base text-[var(--text-primary)] group-hover:text-blue-500 transition-colors">
-                          {contact.value}
+                        <div>
+                          <div className="text-xs text-[var(--text-tertiary)] uppercase tracking-wider mb-1">
+                            {contact.name}
+                          </div>
+                          <div className="text-sm sm:text-base text-[var(--text-primary)] group-hover:text-blue-500 transition-colors">
+                            {contact.value}
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </a>
+                ) : (
+                  <motion.a
+                    key={contact.name}
+                    href={contact.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                    className="group"
+                  >
+                    <div className="p-6 rounded-2xl bg-[var(--surface)] border border-[var(--border)] hover:bg-[var(--surface-hover)] transition-all duration-500">
+                      <div className="flex items-center gap-4">
+                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
+                          contact.color === "purple" ? "bg-purple-500/20 text-purple-500" :
+                          "bg-green-500/20 text-green-500"
+                        }`}>
+                          {contact.icon}
+                        </div>
+                        <div>
+                          <div className="text-xs text-[var(--text-tertiary)] uppercase tracking-wider mb-1">
+                            {contact.name}
+                          </div>
+                          <div className="text-sm sm:text-base text-[var(--text-primary)] group-hover:text-blue-500 transition-colors">
+                            {contact.value}
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </motion.a>
+                  </motion.a>
+                )
               ))}
             </div>
 

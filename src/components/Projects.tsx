@@ -12,6 +12,7 @@ const projects = [
     link: "https://aidevdanyal.vercel.app/",
     gradient: "from-blue-500 to-cyan-400",
     featured: true,
+    image: "/projects/ai-dev-danyal.png",
   },
   {
     title: "Danyal Portfolio",
@@ -21,6 +22,7 @@ const projects = [
     link: "https://danyalportfolio-ten.vercel.app/",
     gradient: "from-purple-500 to-pink-400",
     featured: false,
+    image: "/projects/portfolio.png",
   },
   {
     title: "Homework Manager",
@@ -30,6 +32,7 @@ const projects = [
     link: "https://homework-manager-app.vercel.app/",
     gradient: "from-emerald-500 to-teal-400",
     featured: false,
+    image: "/projects/homework-manager.png",
   },
   {
     title: "FinFlow",
@@ -39,6 +42,7 @@ const projects = [
     link: "https://financial-manager-app-9xk1.vercel.app/",
     gradient: "from-orange-500 to-amber-400",
     featured: false,
+    image: "/projects/financial-manager.png",
   },
   {
     title: "Danyal Arshad",
@@ -57,6 +61,7 @@ const projects = [
     link: "https://dev-danyal-website.vercel.app/",
     gradient: "from-indigo-500 to-violet-400",
     featured: false,
+    image: "/projects/dev-danyal.png",
   },
 ];
 
@@ -109,6 +114,15 @@ export default function Projects() {
           >
             <div className="relative p-8 sm:p-10 rounded-3xl bg-[var(--surface)] border border-[var(--border)] hover:border-blue-500/30 transition-all duration-500 overflow-hidden">
               <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${featuredProject.gradient} opacity-20 blur-[100px] rounded-full`} />
+              {featuredProject.image && (
+                <div className="relative z-10 mb-6 rounded-xl overflow-hidden border border-[var(--border)]">
+                  <img
+                    src={featuredProject.image}
+                    alt={featuredProject.title}
+                    className="w-full h-48 object-cover"
+                  />
+                </div>
+              )}
               
               <div className="relative z-10">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6">
@@ -172,6 +186,15 @@ export default function Projects() {
                 <div className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${project.gradient} opacity-10 blur-[60px] rounded-full`} />
                 
                 <div className="relative z-10">
+                  {project.image && (
+                    <div className="mb-4 rounded-lg overflow-hidden border border-[var(--border)]">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-32 object-cover"
+                      />
+                    </div>
+                  )}
                   <span className="text-xs font-medium text-[var(--text-tertiary)] tracking-wider uppercase">
                     {project.category}
                   </span>
